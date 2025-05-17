@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="lv"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device</div>-width, initial-scale=1.0">
+    <title>Par mani - Dāvis Strazds</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global_style.css">
+<style>
+.hero {
+    position: relative;
+    width: 100vw;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #acca25;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.03em;
+    overflow: hidden;
+    background: none;
+    box-sizing: border-box;
+}
+
+.hero video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(22,33,62,0.8) 100%);
+    z-index: -1;
+}
+
+.profile-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2.5rem 0 3rem;
+    box-shadow: 0 12px 36px rgba(31, 38, 135, 0.35);
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.07) rotate(3deg);
+    box-shadow: 0 18px 48px rgba(67, 156, 255, 0.55);
+}
+
+.bio-section {
+    max-width: 850px;
+    margin: 5rem auto;
+    padding: 2rem 3rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    color: #e6e6ff;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.qualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 5rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto 6rem;
+}
+
+.quality-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-radius: 1.5rem;
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0 10px 32px rgba(31, 38, 135, 0.4);
+    color: #f0f0f5;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.quality-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 48px rgba(67, 156, 255, 0.7);
+}
+
+.quote {
+    max-width: 900px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+    text-align: center;
+    font-size: 1.75rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #4163c0;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cta-button {
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #4a90e2, #67b26f);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 24px rgba(67, 156, 255, 0.6);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    display: inline-block;
+    user-select: none;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background: linear-gradient(135deg, #67b26f, #4a90e2);
+    box-shadow: 0 14px 34px rgba(102, 214, 134, 0.8);
+    transform: scale(1.05);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .bio-section {
+        margin: 3rem 1rem;
+        padding: 1.5rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .qualities-grid {
+        gap: 1.8rem;
+        padding: 3rem 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .quality-card {
+        font-size: 1rem;
+        padding: 1.8rem 1.5rem;
+    }
+
+    .quote {
+        max-width: 900px;
+        margin: 0 auto 5rem;
+        padding: 0 2rem;
+        text-align: center;
+        font-size: 1.75rem;
+        font-style: italic;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        filter: none !important;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 1rem 2.5rem;
+    }
+}
+
+body {
+  background: linear-gradient(135deg, 
+    #1e1ed4 0%,       /* dziļi zils */
+    #2a3a7c 25%,      /* tumšs zils-violets */
+    #4a6cb5 50%,      /* vidēji zils */
+    #1f376e 65%,      /* gaišāks zils */
+    #8ab6f1 80%,      /* debeszils */
+    #0c4ee7 100%      /* ļoti gaišs zils */
+  );
+  color: #c2c9e8;    /* gaišāka krāsa tekstam */
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" data-aos="fade-up">
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="Backgound.mp4" type="video/mp4">
+        Tavs pārlūks neatbalsta video atskaņošanu.
+    </video>
+    <div class="container">
+        <img src="D1.jpg" alt="Dāvis Strazds" class="profile-image" data-aos="zoom-in">
+        <h1 data-aos="fade-up" data-aos-delay="200">Dāvis Strazds</h1>
+        <p data-aos="fade-up" data-aos-delay="400">Sociālais darbinieks un tehnoloģiju entuziasts</p>
+        <p data-aos="fade-up" data-aos-delay="600">Apvienoju cilvēcību ar inovācijām, lai radītu pozitīvas pārmaiņas sabiedrībā</p>
+        <a href="prasmes.html" class="cta-button" data-aos="fade-up" data-aos-delay="800">Skatīt prasmes</a>
+    </div>
+</section>
+
+
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <h2 data-aos="fade-right">Mans ceļš</h2>
+            <div data-aos="fade-up">
+                <p>Ar vairāk nekā 13 gadu pieredzi sociālajā darbā, esmu atklājis, ka tehnoloģijas var būt spēcīgs instruments pozitīvām pārmaiņām. Mana misija ir apvienot sociālo darbu ar modernajām tehnoloģijām, lai uzlabotu cilvēku dzīves kvalitāti.</p>
+                <p>Nepārtraukti pilnveidojos gan sociālā darba, gan IT jomā, lai radītu inovatīvus risinājumus sociālajām problēmām.</p>
+            </div>
+        </section>
+
+        <!-- Qualities Section -->
+        <section class="qualities-grid">
+            <div class="quality-card" data-aos="flip-left">
+                <i class="fas fa-heart fa-3x"></i>
+                <h3>Empātija</h3>
+                <p>Spēja izprast un atbalstīt</p>
+            </div>
+            <div class="quality-card" data-aos="flip-left" data-aos-delay="200">
+                <i class="fas fa-laptop-code fa-3x"></i>
+                <h3>Tehnoloģiskā domāšana</h3>
+                <p>Inovatīvu risinājumu radīšana</p>
+            </div>
+            <div class="quality-card" data-aos="flip-left" data-aos-delay="400">
+                <i class="fas fa-comments fa-3x"></i>
+                <h3>Komunikācija</h3>
+                <p>Efektīva sadarbība ar cilvēkiem</p>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote" data-aos="fade-up">
+            <blockquote>
+                "Tehnoloģijas maina pasauli, bet cilvēks – sabiedrību."
+            </blockquote>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        }
+
+        // Header un Footer ielāde
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            })
+            .catch(error => console.error('Kļūda ielādējot header:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => console.error('Kļūda ielādējot footer:', error));
+    </script>
+</body>
+</html></div>

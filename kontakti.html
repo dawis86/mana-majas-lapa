@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakti</title>
+
+  <!-- AOS animācijas -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Font Awesome ikonām -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+  <style>
+/* Vispārējie stili un fonts */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fb;
+  margin: 0;
+  color: #2a2a4a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* smalks gradienta fons modernākam efektam */
+  background: linear-gradient(135deg, #f9f9fb 0%, #e6e8f0 100%);
+}
+
+/* Konteiners */
+.contact-container {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Virsraksti */
+h1, h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  color: #2a2a4a;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+/* Kontaktinformācijas karšu režģis */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Viena karte */
+.contact-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 14px 28px rgba(34, 34, 66, 0.08);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  cursor: default;
+  will-change: transform;
+  /* neliels hover efekts ar scale */
+}
+.contact-card:hover,
+.contact-card:focus-within {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 24px 48px rgba(34, 34, 66, 0.16);
+}
+
+/* Ikona ar animāciju */
+.contact-icon {
+  font-size: 3.5rem;
+  color: #4a4a8a;
+  flex-shrink: 0;
+  transition: color 0.4s ease;
+  will-change: color, transform;
+}
+.contact-card:hover .contact-icon,
+.contact-card:focus-within .contact-icon {
+  color: #6c63ff;
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Teksta info */
+.contact-info h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.3rem 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contact-info a,
+.contact-info p {
+  font-size: 1.05rem;
+  color: #555770;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.3s ease;
+  line-height: 1.5;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+  color: #2a2a4a;
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Kontaktforma */
+.contact-form {
+  background: #ffffff;
+  padding: 3rem 3.5rem;
+  border-radius: 20px;
+  box-shadow: 0 18px 36px rgba(34, 34, 66, 0.1);
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  transition: box-shadow 0.3s ease;
+}
+.contact-form:hover,
+.contact-form:focus-within {
+  box-shadow: 0 28px 56px rgba(34, 34, 66, 0.15);
+}
+
+.contact-form h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #2a2a4a;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Formas grupas */
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+/* Label */
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  color: #2a2a4a;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+
+/* Ievades lauki */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  border: 2.5px solid #ddd;
+  border-radius: 14px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  resize: vertical;
+  font-family: inherit;
+  background-color: #fafafa;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.4);
+  background-color: #fff;
+}
+
+textarea {
+  min-height: 160px;
+  line-height: 1.5;
+}
+
+/* Poga */
+button.submit-btn {
+  background: linear-gradient(135deg, #6c63ff 0%, #574bcc 100%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 1.15rem 2.75rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.25s ease;
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+button.submit-btn:hover,
+button.submit-btn:focus {
+  background: linear-gradient(135deg, #574bcc 0%, #6c63ff 100%);
+  box-shadow: 0 12px 30px rgba(87, 75, 204, 0.6);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+/* Responsīvs dizains */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 2rem 1rem;
+    margin: 3rem auto;
+  }
+
+  .contact-form {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="contact-container" role="main" aria-label="Kontaktu sadaļa">
+    <h1>Sazinies ar mani</h1>
+
+    <section class="contact-grid" data-aos="fade-up" aria-label="Kontaktinformācija">
+      <article class="contact-card" tabindex="0" aria-labelledby="email-title">
+        <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
+        <div class="contact-info">
+          <h3 id="email-title">E-pasts</h3>
+          <a href="mailto:davisstrazds@gmail.com" aria-describedby="email-desc">davisstrazds@gmail.com</a>
+        </div>
+      </article>
+
+      <article class="contact-card" tabindex="0" aria-labelledby="phone-title">
+        <i class="fas fa-phone contact-icon" aria-hidden="true"></i>
+        <div class="contact-info">
+          <h3 id="phone-title">Tālrunis</h3>
+          <a href="tel:+37126482667" aria-describedby="phone-desc">+371 264 82 667</a>
+        </div>
+      </article>
+
+      <article class="contact-card" tabindex="0" aria-labelledby="location-title">
+        <i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i>
+        <div class="contact-info">
+          <h3 id="location-title">Atrašanās vieta</h3>
+          <p aria-describedby="location-desc">Gramzda, Dienvidkurzemes novads, Latvija</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact-form" data-aos="fade-up" aria-label="Saziņas forma">
+      <h2>Sazināties</h2>
+      <form novalidate>
+        <div class="form-group">
+          <label for="name">Vārds</label>
+          <input type="text" id="name" name="name" required aria-required="true" placeholder="Ievadi savu vārdu" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-pasts</label>
+          <input type="email" id="email" name="email" required aria-required="true" placeholder="Ievadi savu e-pastu" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Ziņojums</label>
+          <textarea id="message" name="message" required aria-required="true" placeholder="Raksti ziņojumu šeit..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" aria-label="Nosūtīt ziņojumu">Nosūtīt ziņojumu</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Ielādē header un footer dinamisko saturu
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => (document.getElementById('header').innerHTML = data))
+      .catch(error => console.error('Kļūda ielādējot header:', error));
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => (document.getElementById('footer').innerHTML = data))
+      .catch(error => console.error('Kļūda ielādējot footer:', error));
+
+    // Vienkārša forma validācija un paziņojums
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Šeit var pievienot servera sūtīšanu vai AJAX
+      alert('Paldies! Ziņojums nosūtīts.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Programmēšanas projekti - Portfolio</title>
+    <meta name="description" content="Programmēšanas projektu portfolio ar dažādiem koda piemēriem, rīkiem un tehnoloģijām." />
+    <link rel="stylesheet" href="global_style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* ==== Pamatstilistika ==== */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Poppins', 'Inter', sans-serif;
+          background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+          color: #0d47a1;
+          line-height: 1.6;
+          overflow-x: hidden;
+        }
+
+        /* ==== Galvenais saturs ==== */
+        .content {
+          padding: 80px 20px;
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        /* ==== Ievada sekcija ==== */
+        .intro {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+
+        .intro h1 {
+          font-size: 3rem;
+          color: #1565c0;
+          margin-bottom: 10px;
+        }
+
+        .subtitle {
+          font-size: 1.2rem;
+          color: #444;
+          animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* ==== Projektu kartītes ==== */
+        .projects {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-bottom: 80px;
+        }
+
+        .project-card {
+          background: rgba(255, 255, 255, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          border-radius: 20px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(12px);
+          padding: 30px;
+          text-align: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transform-style: preserve-3d;
+          cursor: default;
+        }
+
+        .project-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+          cursor: pointer;
+        }
+
+        .project-card i {
+          font-size: 2.8rem;
+          color: #1976d2;
+          margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+          font-size: 1.4rem;
+          margin-bottom: 10px;
+          color: #0d47a1;
+        }
+
+        .project-card p {
+          font-size: 1rem;
+          color: #222;
+          margin-bottom: 20px;
+          min-height: 60px;
+        }
+
+        .view-btn {
+          background: #2196f3;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 30px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: background 0.3s ease;
+          user-select: none;
+        }
+
+        .view-btn:hover {
+          background: #1565c0;
+        }
+
+        /* ==== Papildinformācija ==== */
+        .additional-info {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 40px;
+        }
+
+        .functions, .download-section {
+          flex: 1 1 400px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 16px;
+          padding: 30px;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .additional-info h2 {
+          font-size: 1.5rem;
+          color: #1565c0;
+          margin-bottom: 15px;
+        }
+
+        .functions ul {
+          list-style-type: disc;
+          padding-left: 20px;
+          color: #0d47a1;
+          font-weight: 500;
+        }
+
+        .download-btn {
+          display: inline-block;
+          margin-top: 10px;
+          padding: 10px 20px;
+          background: #1976d2;
+          color: #fff;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+          background: #0d47a1;
+        }
+
+        /* ==== Tumšais režīms ==== */
+        body.dark-mode {
+          background: linear-gradient(135deg, #1a237e, #0d47a1);
+          color: #e3f2fd;
+        }
+
+        body.dark-mode .project-card,
+        body.dark-mode .functions,
+        body.dark-mode .download-section {
+          background: rgba(255, 255, 255, 0.07);
+          color: #e3f2fd;
+          border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        body.dark-mode .project-card i {
+          color: #90caf9;
+        }
+
+        body.dark-mode .view-btn,
+        body.dark-mode .download-btn {
+          background: #64b5f6;
+        }
+
+        body.dark-mode .view-btn:hover,
+        body.dark-mode .download-btn:hover {
+          background: #42a5f5;
+        }
+
+        /* ==== Animācijas ==== */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* ==== Responsīvais pielāgojums ==== */
+        @media (max-width: 768px) {
+          .intro h1 {
+            font-size: 2.2rem;
+          }
+          .additional-info {
+            flex-direction: column;
+          }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="content">
+    <section class="intro" data-aos="fade-up">
+        <h1>💻 Programmēšanas projekti</h1>
+        <p class="subtitle">Dažādi koda risinājumi, bibliotēkas un rīki no reāliem projektiem</p>
+    </section>
+
+    <section class="projects">
+        <div class="project-card" data-aos="fade-up">
+            <i class="fas fa-code"></i>
+            <h3>Veikala preču pārvaldības sistēma</h3>
+            <p>Izstrādāta pilnvērtīga CRUD sistēma ar REST API un datu bāzi</p>
+            <button class="view-btn" onclick="alert('Skatīt projektu nav pieejams šobrīd')">Skatīt projektu</button>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fab fa-js-square"></i>
+            <h3>Interaktīva tīmekļa lietotne</h3>
+            <p>SPA ar React.js, pielāgota mobilajām ierīcēm un ar responsīvu dizainu</p>
+            <button class="view-btn" onclick="alert('Skatīt projektu nav pieejams šobrīd')">Skatīt projektu</button>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-robot"></i>
+            <h3>Automatizēts datu apstrādes bots</h3>
+            <p>Python skripts ar API integrācijām, datu vākšanu un analīzi</p>
+            <button class="view-btn" onclick="alert('Skatīt projektu nav pieejams šobrīd')">Skatīt projektu</button>
+        </div>
+    </section>
+
+    <section class="additional-info">
+        <div class="functions" data-aos="fade-up">
+            <h2>🛠️ Izmantotās tehnoloģijas</h2>
+            <ul>
+                <li>JavaScript (ES6+), React, Node.js</li>
+                <li>Python, Flask, API integrācijas</li>
+                <li>HTML5, CSS3, Responsive Design</li>
+                <li>Git, Docker, RESTful API</li>
+            </ul>
+        </div>
+
+        <div class="download-section" data-aos="fade-up">
+            <h2>📥 Lejupielādēt koda piemērus</h2>
+            <a href="/files/programming_samples.zip" class="download-btn">Lejupielādēt ZIP</a>
+        </div>
+    </section>
+</main>
+
+<div id="footer"></div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+
+    // Header un Footer ielāde (vajag failus header.html un footer.html tajā pašā mapē)
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        })
+        .catch(error => console.error('Kļūda ielādējot header:', error));
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error =>
+        console.error('Kļūda ielādējot footer:', error));
+
+        
+</script>
+</body>
+</html>

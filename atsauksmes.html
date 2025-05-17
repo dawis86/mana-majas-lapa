@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atsauksmes - Klientu viedokļi</title>
+  <meta name="description" content="Klientu atsauksmes un viedokļi par mūsu pakalpojumiem">
+  <link rel="stylesheet" href="global_style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card i.fa-quote-left {
+      font-size: 1.5rem;
+      color: #888;
+    }
+
+    .testimonial-text {
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    .testimonial-author h3 {
+      margin: 0.5rem 0 0 0;
+      font-weight: 600;
+    }
+
+    .testimonial-author p {
+      font-size: 0.9rem;
+      color: #888;
+      margin: 0;
+    }
+
+    .rating i {
+      color: #fbb034;
+    }
+
+    .contact-section {
+      background-color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .feedback-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #43a047;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header include -->
+  <div id="header"></div>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+      <h1 class="typewriter">💬 Klientu atsauksmes</h1>
+      <p class="subtitle">Ko par mums saka mūsu klienti</p>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="testimonials-grid">
+      <!-- Atsauksmes kartīte 1 -->
+      <div class="testimonial-card" data-aos="fade-up">
+        <div class="card-content">
+          <i class="fas fa-quote-left"></i>
+          <p class="testimonial-text">"Izcils serviss un profesionāla pieeja. Ļoti apmierināts ar rezultātu!"</p>
+          <div class="testimonial-author">
+            <h3>Jānis Bērziņš</h3>
+            <p>SIA "Tech Solutions"</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atsauksmes kartīte 2 -->
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-content">
+          <i class="fas fa-quote-left"></i>
+          <p class="testimonial-text">"Ātri un kvalitatīvi risinājumi. Noteikti izmantošu pakalpojumus vēlreiz!"</p>
+          <div class="testimonial-author">
+            <h3>Anna Kalniņa</h3>
+            <p>SIA "Digital Latvia"</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atsauksmes kartīte 3 -->
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-content">
+          <i class="fas fa-quote-left"></i>
+          <p class="testimonial-text">"Inovatīva pieeja un moderni risinājumi. Iesaku visiem!"</p>
+          <div class="testimonial-author">
+            <h3>Pēteris Ozols</h3>
+            <p>SIA "Innovation Hub"</p>
+            <div class="rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="contact-section" data-aos="fade-up">
+      <h2>📝 Atstāj savu atsauksmi</h2>
+      <form class="feedback-form" id="feedback-form">
+        <input type="text" placeholder="Vārds, Uzvārds" required>
+        <input type="email" placeholder="E-pasts" required>
+        <textarea placeholder="Jūsu atsauksme" required></textarea>
+        <button type="submit" class="submit-btn">Nosūtīt atsauksmi</button>
+        <div class="success-message" id="success-message">Paldies par atsauksmi!</div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Ielādē header un footer
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+
+    // Atsauksmes formas apstrāde
+    document.getElementById('feedback-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('success-message').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
